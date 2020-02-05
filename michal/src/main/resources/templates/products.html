@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+<h2>Available list of shoes:</h2><br><br>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Discount</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="Product : ${products}">
+
+        <td><span th:text="${Product.productName}"/></td>
+        <td><span th:text="${Product.productDescription}"/></td>
+        <td><span th:text="${Product.discount}"/></td>
+        <td><span th:text="${Product.productPrice}"/></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

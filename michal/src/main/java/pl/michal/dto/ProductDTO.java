@@ -7,13 +7,13 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class productDTO {
+public class ProductDTO {
 
     private long productId;
     private String productName;
     private String productDescription;
-    private String productType;
+    private Double discount;
     private long productPrice;
 
-    public productDTO (long productId){this.productId = productId;}
+
 }

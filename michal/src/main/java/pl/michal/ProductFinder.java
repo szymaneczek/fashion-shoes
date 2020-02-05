@@ -1,8 +1,8 @@
 package pl.michal;
 
 import org.springframework.stereotype.Service;
-import pl.michal.dto.productDTO;
-import pl.michal.entity.product;
+import pl.michal.dto.ProductDTO;
+import pl.michal.entity.Product;
 import pl.michal.repository.ProductRepository;
 
 import java.util.List;
@@ -13,9 +13,9 @@ public class ProductFinder {
 
     private final ProductRepository productRepository;
 
-    public List<productDTO> productList(){
+    public List<ProductDTO> productList(){
         return productRepository.findAll().stream()
-                .map(product::toDto)
+                .map(Product::toDto)
                 .collect(Collectors.toList());
     }
 

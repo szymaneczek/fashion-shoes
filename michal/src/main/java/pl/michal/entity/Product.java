@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import pl.michal.dto.productDTO;
+import pl.michal.dto.ProductDTO;
 
 import javax.persistence.*;
 
@@ -14,9 +14,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Enumerated(EnumType.STRING)
 @Table(name ="Product")
 
-public class product {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long productId;
@@ -25,12 +26,15 @@ public class product {
     @Column(name = "Description")
     private String productDescription;
     @Column(name = "Type")
-    private String productType;
+    @Enumerated(EnumType.STRING)
+    public enum productType{MALE(0.05),FEMALE(0.05),KID(0.1)}
+    public final Double discount;
+    private Element(Double discount){this.discount = discount;}
     @Column(name = "Price")
     private Long productPrice;
 
-    public productDTO toDto(){
-        return productDTO.builder()
+    public ProductDTO toDto(){
+        return ProductDTO.builder()
                 .productId(productId)
                 .productName(productName)
                 .productDescription(productDescription)
