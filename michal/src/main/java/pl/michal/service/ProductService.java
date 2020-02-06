@@ -37,14 +37,6 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    public ProductDTO toDto() {
-        return ProductDTO.builder()
-                .productId(productId)
-                .productName(productName)
-                .productDescription(productDescription)
-                .productType(productType)
-                .productPrice(productPrice)
-                .build();
 
-    }
+
 }

@@ -16,4 +16,6 @@ public class ProductDTO {
     private long productPrice;
 
 
+    public ProductDTO(Long productId) {
+    }
 }

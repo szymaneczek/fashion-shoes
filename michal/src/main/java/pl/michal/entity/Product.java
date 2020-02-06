@@ -30,6 +30,20 @@ public class Product {
     @Column(name = "Price")
     private Long productPrice;
 
+    public Product(Long productId, String productName, String productDescription, String productType, Long productPrice){
+        this.productId = productId;
+        this.productName = productName;
+        this.productDescription = productDescription;
+        this.productPrice = productPrice;
+        }
 
+        public ProductDTO toDto(){
+        return ProductDTO.builder()
+                .productId(productId)
+                .productName(productName)
+                .productDescription(productDescription)
+                .productPrice(productPrice)
+                .build();
+        }
     }
 
