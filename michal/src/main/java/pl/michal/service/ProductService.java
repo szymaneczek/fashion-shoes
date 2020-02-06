@@ -19,7 +19,7 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public List<ProductDTO> productList(){
+    public List<ProductDTO> productList() {
         log.info("product list");
         return productRepository.findAll().stream()
                 .map(product -> new ProductDTO(product.getProductId()))
@@ -27,7 +27,7 @@ public class ProductService {
 
     }
 
-    public void createOrUpdate(ProductDTO dto){
+    public void createOrUpdate(ProductDTO dto) {
         Product product = Product.builder()
                 .productId(dto.getProductId())
                 .productName(dto.getProductName())
@@ -37,5 +37,14 @@ public class ProductService {
         productRepository.save(product);
     }
 
+    public ProductDTO toDto() {
+        return ProductDTO.builder()
+                .productId(productId)
+                .productName(productName)
+                .productDescription(productDescription)
+                .productType(productType)
+                .productPrice(productPrice)
+                .build();
 
+    }
 }

@@ -14,7 +14,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Enumerated(EnumType.STRING)
 @Table(name ="Product")
 
 public class Product {
@@ -26,20 +25,10 @@ public class Product {
     @Column(name = "Description")
     private String productDescription;
     @Column(name = "Type")
-    @Enumerated(EnumType.STRING)
-    public enum productType{MALE(0.05),FEMALE(0.05),KID(0.1)}
-    public final Double discount;
-    private Element(Double discount){this.discount = discount;}
+    private ProductType productType;
     @Column(name = "Price")
     private Long productPrice;
 
-    public ProductDTO toDto(){
-        return ProductDTO.builder()
-                .productId(productId)
-                .productName(productName)
-                .productDescription(productDescription)
-                .productType(productType)
-                .productPrice(productPrice)
-                .build();
+
     }
-}
+
